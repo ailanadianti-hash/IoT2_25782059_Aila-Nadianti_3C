@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Aila Nadianti -- 25782059",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": -16, "left": 125.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -70.8, "left": -25, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24.85,
+      "left": 48,
+      "attrs": { "value": "200" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "ldr:VCC", "red", [ "h234.7", "v-158.5" ] ],
+    [ "esp:GND.1", "ldr:GND", "black", [ "h215.5", "v-139" ] ],
+    [ "esp:34", "ldr:AO", "green", [] ],
+    [ "esp:D13", "ldr:DO", "green", [ "h-24.2", "v71.7", "h326.4", "v-191.4" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.2", "green", [ "h-38", "v177.8" ] ],
+    [ "esp:D2", "r1:2", "green", [ "h23.5", "v-197.6", "h10.8" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}

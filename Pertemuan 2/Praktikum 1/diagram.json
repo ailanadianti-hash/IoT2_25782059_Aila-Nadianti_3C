@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Aila Nadianti",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 4.84, "attrs": {} },
+    { "type": "wokwi-photoresistor", "id": "ldr", "top": -80, "left": 100, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 99.2,
+      "left": -277.6,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr:0", "esp:3V3", "red", [ "v0" ] ],
+    [ "ldr:1", "esp:34", "green", [ "v0" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "v-96", "h115.05" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h67.2", "v28.4" ] ],
+    [ "ldr1:AO", "esp:34", "green", [ "h38.4", "v-87.1", "h71.81" ] ]
+  ],
+  "dependencies": {}
+}
